@@ -6,12 +6,11 @@ using DG.Tweening;
 
 public class DamageButton : MonoBehaviour
 {
-    [SerializeField] private Slider _healthBar;
+    [SerializeField] private Player _player;
     [SerializeField] private int _damage;
 
     public void OnButtonClick()
     {
-        int value = (int)_healthBar.value - _damage;
-        _healthBar.DOValue(value, 0.5f).SetEase(Ease.Linear);
+        _player.ApplyDamage(_damage);
     }
 }
